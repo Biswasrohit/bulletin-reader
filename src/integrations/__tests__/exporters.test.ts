@@ -2,10 +2,15 @@ import {
   generateICS,
   generateVCard,
   generateMarkdown,
+  generateChecklist,
+  generateEmailDraft,
+  generateOutputs,
   extractLinks,
   CalendarEvent,
   Contact,
   Notes,
+  Checklist,
+  EmailDraft,
 } from '../exporters';
 
 describe('generateICS', () => {
@@ -243,5 +248,127 @@ describe('extractLinks', () => {
     const links = extractLinks(text);
 
     expect(links).toEqual(['https://api.example.com/v2/users?page=1&limit=10#section']);
+  });
+});
+
+describe('generateChecklist', () => {
+  it('should format heading and checkbox tasks correctly', () => {
+    const checklist: Checklist = {
+      title: 'Tech Summit Tasks',
+      tasks: ['Register online', 'Book hotel by Apr 1', 'Submit speaker form'],
+    };
+
+    const result = generateChecklist(checklist);
+
+    expect(result).toBe(
+      '# Tech Summit Tasks\n\n' +
+        '- [ ] Register online\n' +
+        '- [ ] Book hotel by Apr 1\n' +
+        '- [ ] Submit speaker form\n'
+    );
+  });
+
+  it('should handle a single task', () => {
+    const checklist: Checklist = {
+      title: 'One Thing',
+      tasks: ['Send the email'],
+    };
+
+    const result = generateChecklist(checklist);
+
+    expect(result).toBe('# One Thing\n\n- [ ] Send the email\n');
+  });
+
+  it('should handle empty tasks array', () => {
+    const checklist: Checklist = {
+      title: 'Empty List',
+      tasks: [],
+    };
+
+    const result = generateChecklist(checklist);
+
+    expect(result).toBe('# Empty List\n\n\n');
+  });
+});
+
+describe('generateEmailDraft', () => {
+  it('should produce correct To, Subject, and body', () => {
+    const draft: EmailDraft = {
+      to: 'sarah@techsummit.io',
+      subject: 'RSVP – Tech Summit 2026',
+      body: 'Hi Sarah,\n\nI saw your flyer and would like to attend.',
+    };
+
+    const result = generateEmailDraft(draft);
+
+    expect(result).toContain('To: sarah@techsummit.io');
+    expect(result).toContain('Subject: RSVP – Tech Summit 2026');
+    expect(result).toContain('Hi Sarah,');
+  });
+
+  it('should separate headers from body with a blank line', () => {
+    const draft: EmailDraft = {
+      to: 'a@b.com',
+      subject: 'Hello',
+      body: 'Body text here.',
+    };
+
+    const result = generateEmailDraft(draft);
+    const lines = result.split('\n');
+
+    // line 0: To:, line 1: Subject:, line 2: blank, line 3+: body
+    expect(lines[0]).toBe('To: a@b.com');
+    expect(lines[1]).toBe('Subject: Hello');
+    expect(lines[2]).toBe('');
+    expect(lines[3]).toBe('Body text here.');
+  });
+});
+
+describe('generateOutputs', () => {
+  it('should return only ics when only event is provided', () => {
+    const result = generateOutputs({
+      event: { title: 'Team Lunch', startDate: '2026-05-01T12:00:00Z' },
+    });
+
+    expect(result.ics).toBeDefined();
+    expect(result.ics).toContain('SUMMARY:Team Lunch');
+    expect(result.vcard).toBeUndefined();
+    expect(result.checklist).toBeUndefined();
+    expect(result.emailDraft).toBeUndefined();
+  });
+
+  it('should return all four outputs when all inputs are provided', () => {
+    const result = generateOutputs({
+      event:     { title: 'Tech Summit 2026', startDate: '2026-04-22T09:00:00Z', endDate: '2026-04-22T17:00:00Z', location: 'Hall B' },
+      contact:   { name: 'Sarah Lin', email: 'sarah@techsummit.io', phone: '555-0192' },
+      checklist: { title: 'Summit Tasks', tasks: ['Register online', 'Book hotel'] },
+      email:     { to: 'sarah@techsummit.io', subject: 'RSVP', body: 'Counting me in!' },
+    });
+
+    expect(result.ics).toBeDefined();
+    expect(result.vcard).toBeDefined();
+    expect(result.checklist).toBeDefined();
+    expect(result.emailDraft).toBeDefined();
+  });
+
+  it('should return empty object when no inputs are provided', () => {
+    const result = generateOutputs({});
+
+    expect(result.ics).toBeUndefined();
+    expect(result.vcard).toBeUndefined();
+    expect(result.checklist).toBeUndefined();
+    expect(result.emailDraft).toBeUndefined();
+  });
+
+  it('should return correct content for each output type', () => {
+    const result = generateOutputs({
+      contact:   { name: 'Sarah Lin', email: 'sarah@techsummit.io' },
+      checklist: { title: 'Tasks', tasks: ['Book hotel'] },
+    });
+
+    expect(result.vcard).toContain('FN:Sarah Lin');
+    expect(result.checklist).toContain('- [ ] Book hotel');
+    expect(result.ics).toBeUndefined();
+    expect(result.emailDraft).toBeUndefined();
   });
 });

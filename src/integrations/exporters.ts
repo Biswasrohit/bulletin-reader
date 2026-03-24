@@ -23,6 +23,17 @@ export interface Notes {
   readonly items: readonly string[];
 }
 
+export interface Checklist {
+  readonly title: string;
+  readonly tasks: readonly string[];
+}
+
+export interface EmailDraft {
+  readonly to: string;
+  readonly subject: string;
+  readonly body: string;
+}
+
 function generateUUID(): string {
   const hex = '0123456789abcdef';
   const sections = [8, 4, 4, 4, 12];
@@ -120,6 +131,40 @@ export function generateMarkdown(notes: Notes): string {
   const heading = `# ${notes.title}`;
   const bullets = notes.items.map((item) => `- ${item}`).join('\n');
   return `${heading}\n\n${bullets}\n`;
+}
+
+export function generateChecklist(checklist: Checklist): string {
+  const heading = `# ${checklist.title}`;
+  const tasks = checklist.tasks.map((task) => `- [ ] ${task}`).join('\n');
+  return `${heading}\n\n${tasks}\n`;
+}
+
+export function generateEmailDraft(draft: EmailDraft): string {
+  return `To: ${draft.to}\nSubject: ${draft.subject}\n\n${draft.body}`;
+}
+
+export interface OutputRequest {
+  readonly event?: CalendarEvent;
+  readonly contact?: Contact;
+  readonly checklist?: Checklist;
+  readonly email?: EmailDraft;
+}
+
+export interface OutputResult {
+  readonly ics?: string;
+  readonly vcard?: string;
+  readonly checklist?: string;
+  readonly emailDraft?: string;
+}
+
+export function generateOutputs(request: OutputRequest): OutputResult {
+  const result: OutputResult = {
+    ...(request.event    !== undefined && { ics:        generateICS(request.event) }),
+    ...(request.contact  !== undefined && { vcard:      generateVCard(request.contact) }),
+    ...(request.checklist !== undefined && { checklist: generateChecklist(request.checklist) }),
+    ...(request.email    !== undefined && { emailDraft: generateEmailDraft(request.email) }),
+  };
+  return result;
 }
 
 export function extractLinks(text: string): string[] {
