@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f6f3f2",
+              "inverse-primary": "#b1c9e6",
+              "tertiary-fixed-dim": "#ffb59b",
+              "on-surface": "#1c1b1b",
+              "background": "#fcf9f8",
+              "surface-tint": "#496079",
+              "on-secondary-fixed-variant": "#005236",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#ebe7e7",
+              "surface-container": "#f0edec",
+              "primary-fixed-dim": "#b1c9e6",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffece6",
+              "primary-container": "#586f89",
+              "surface-bright": "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "outline": "#747688",
+              "on-tertiary-fixed-variant": "#812800",
+              "on-primary-fixed-variant": "#324961",
+              "on-primary-container": "#e8f1ff",
+              "surface-dim": "#dcd9d9",
+              "surface-container-highest": "#e5e2e1",
+              "tertiary-fixed": "#ffdbcf",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "primary": "#40576f",
+              "secondary-fixed": "#6ffbbe",
+              "secondary-fixed-dim": "#4edea3",
+              "on-secondary-fixed": "#002113",
+              "primary-fixed": "#d0e4ff",
+              "tertiary-container": "#c24100",
+              "on-secondary-container": "#00714d",
+              "secondary": "#006c49",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c4c5d9",
+              "inverse-surface": "#313030",
+              "tertiary": "#993100",
+              "on-tertiary-fixed": "#380d00",
+              "on-surface-variant": "#434656",
+              "inverse-on-surface": "#f3f0ef",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#021d33",
+              "surface": "#fcf9f8",
+              "secondary-container": "#6cf8bb",
+              "surface-variant": "#e5e2e1"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fcf9f8] dark:bg-[#1c1b1b] docked full-width top-0 z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#40576f] dark:text-[#586f89] hover:bg-[#f6f3f2] dark:hover:bg-[#252423] transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-bold tracking-tight text-lg text-[#40576f] dark:text-[#586f89]">AI Processing Hub</h1>
+</div>
+<button class="font-['Manrope'] font-black text-xl tracking-[-0.02em] text-[#1c1b1b] dark:text-[#fcf9f8] hover:bg-[#f6f3f2] dark:hover:bg-[#252423] px-4 py-1 rounded transition-colors active:scale-95 duration-200">
+            Done
+        </button>
+</header>
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Hero Image Section -->
+<section class="px-6 pt-8 pb-12">
+<div class="relative group">
+<div class="aspect-[4/3] w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-surface-container shadow-[0_16px_32px_rgba(28,27,27,0.04)]">
+<img alt="Document Scan" class="w-full h-full object-cover" data-alt="Close-up of a high-quality printed document on a minimal desk with soft architectural lighting and professional shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJk1V3uz5PUj-xMUDtxB3KJJGycKs0GbRMXo4QQZ0UzTipn64oXbVTVG0eT8qW_KmNYlFS-d00umkbDmHzVUxtz9mun7rq5zeCah3zUN6mmuQjt_NRKTQsySws_Xlmz244SEOpxEWf3pvwNi_OH1Xdyn4kTqVks-M7iiFg6BM2RpBTwK5LfpQKM_GZVYFSIzZEh6XjRVESGCN3sGtawYlEU9HIa8dlUHoi_mxgT7U8YmeApmbGpAqPWgOJzpzmFJse5TkZ4NZwMO0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<button class="absolute bottom-4 right-8 bg-surface-container-lowest/80 backdrop-blur-md p-3 rounded-full shadow-lg text-primary hover:bg-surface-container-lowest transition-all">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+</section>
+<!-- OCR Preview Section -->
+<section class="px-6 space-y-4 max-w-4xl mx-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline font-bold text-headline-sm text-on-surface">OCR Preview</h2>
+</div>
+<span class="font-label text-label-md text-outline uppercase tracking-widest">Confidence 98%</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-lowest border-l-4 border-secondary shadow-sm">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body leading-relaxed min-h-[120px] resize-none" spellcheck="false">Project Alpha Strategy:
+1. Define core user personas and journey maps.
+2. Establish a unified design language across all platforms.
+3. Integrate advanced AI processing for real-time document analysis.
+4. Scale infrastructure to support 10k concurrent sessions.</textarea>
+</div>
+</section>
+<!-- Action Cards Horizontal Scroll -->
+<section class="mt-12 space-y-4">
+<h3 class="px-6 font-headline font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+                Intelligent Actions
+            </h3>
+<div class="flex overflow-x-auto gap-4 px-6 no-scrollbar pb-4">
+<!-- Action Card 1 -->
+<button class="flex-shrink-0 w-44 p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:shadow-md transition-all group active:scale-95">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">checklist</span>
+</div>
+<p class="text-left font-headline font-bold text-on-surface text-sm leading-tight">Create Checklist</p>
+<p class="text-left font-label text-[10px] text-outline mt-1 uppercase">Automated Tasking</p>
+</button>
+<!-- Action Card 2 -->
+<button class="flex-shrink-0 w-44 p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:shadow-md transition-all group active:scale-95">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/10 flex items-center justify-center mb-4 group-hover:bg-secondary-container/20 transition-colors">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">summarize</span>
+</div>
+<p class="text-left font-headline font-bold text-on-surface text-sm leading-tight">Summarize &amp; Email</p>
+<p class="text-left font-label text-[10px] text-outline mt-1 uppercase">Executive Summary</p>
+</button>
+<!-- Action Card 3 -->
+<button class="flex-shrink-0 w-44 p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:shadow-md transition-all group active:scale-95">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center mb-4 group-hover:bg-tertiary-container/20 transition-colors">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sticky_note_2</span>
+</div>
+<p class="text-left font-headline font-bold text-on-surface text-sm leading-tight">Save to Notes</p>
+<p class="text-left font-label text-[10px] text-outline mt-1 uppercase">Cloud Archive</p>
+</button>
+<!-- Action Card 4 -->
+<button class="flex-shrink-0 w-44 p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm hover:shadow-md transition-all group active:scale-95">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-4 group-hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+</div>
+<p class="text-left font-headline font-bold text-on-surface text-sm leading-tight">Add to Calendar</p>
+<p class="text-left font-label text-[10px] text-outline mt-1 uppercase">Schedule Event</p>
+</button>
+</div>
+</section>
+<!-- Apply Action Button -->
+<section class="px-6 mt-12 pb-12 max-w-4xl mx-auto">
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg flex items-center justify-center gap-3 shadow-lg active:scale-[0.98] transition-all relative overflow-hidden group">
+<span class="material-symbols-outlined">smart_toy</span>
+                Apply Intelligence
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+<p class="text-center text-outline text-xs mt-4 font-label tracking-wide uppercase">AI will process the selection using GPT-4 Vision</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#ffffff]/80 dark:bg-[#1c1b1b]/80 backdrop-blur-xl z-50 shadow-[0_-16px_32px_rgba(28,27,27,0.04)]">
+<button class="flex flex-col items-center justify-center text-[#40576f]/40 dark:text-[#fcf9f8]/40 hover:text-[#40576f] dark:hover:text-[#6cf8bb] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Capture</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#40576f] dark:text-[#6cf8bb] font-bold hover:text-[#40576f] dark:hover:text-[#6cf8bb] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#40576f]/40 dark:text-[#fcf9f8]/40 hover:text-[#40576f] dark:hover:text-[#6cf8bb] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

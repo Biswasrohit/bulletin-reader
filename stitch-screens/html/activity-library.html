@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f6f3f2",
+              "inverse-primary": "#b1c9e6",
+              "tertiary-fixed-dim": "#ffb59b",
+              "on-surface": "#1c1b1b",
+              "background": "#fcf9f8",
+              "surface-tint": "#496079",
+              "on-secondary-fixed-variant": "#005236",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#ebe7e7",
+              "surface-container": "#f0edec",
+              "primary-fixed-dim": "#b1c9e6",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffece6",
+              "primary-container": "#586f89",
+              "surface-bright": "#fcf9f8",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "outline": "#747688",
+              "on-tertiary-fixed-variant": "#812800",
+              "on-primary-fixed-variant": "#324961",
+              "on-primary-container": "#e8f1ff",
+              "surface-dim": "#dcd9d9",
+              "surface-container-highest": "#e5e2e1",
+              "tertiary-fixed": "#ffdbcf",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "primary": "#40576f",
+              "secondary-fixed": "#6ffbbe",
+              "secondary-fixed-dim": "#4edea3",
+              "on-secondary-fixed": "#002113",
+              "primary-fixed": "#d0e4ff",
+              "tertiary-container": "#c24100",
+              "on-secondary-container": "#00714d",
+              "secondary": "#006c49",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c4c5d9",
+              "inverse-surface": "#313030",
+              "tertiary": "#993100",
+              "on-tertiary-fixed": "#380d00",
+              "on-surface-variant": "#434656",
+              "inverse-on-surface": "#f3f0ef",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#021d33",
+              "surface": "#fcf9f8",
+              "secondary-container": "#6cf8bb",
+              "surface-variant": "#e5e2e1"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1c1b1b;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#fcf9f8] dark:bg-[#1c1b1b] docked full-width top-0 z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#40576f] dark:text-[#586f89]" data-icon="menu_open">menu_open</span>
+<h1 class="font-['Manrope'] font-black text-xl tracking-[-0.02em] text-[#1c1b1b] dark:text-[#fcf9f8]">The Cognitive Atelier</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#40576f]/60 dark:text-[#fcf9f8]/60 hover:bg-[#f6f3f2] p-2 rounded-full transition-colors" data-icon="search">search</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="minimalist profile avatar of a person in a soft-lit studio setting with neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHihO-guez-6wIOeDR27NJTrsv7FxNAyipKxtU0iEgLo9hrOn7HtJBLLHwKS5ffX89sjOlZK9I0Os0FybwvZ-tWvZBDVw7iiM6kzCm4Xq60gEE-CzRhF6o2IduW2wRRuvFHQ68Qf8NGA-HzFjqyhEFmx6OlY3C1XXvNVVRgms7UPlEdubSjPSXR80KyL82pKuoNmLobRnMiXegQiyICmg06ltMcO3BfEioihWG24cgxJK0wrsdVEqa0NhkYKH426cm5XxRWyCCXHU"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 pt-8">
+<!-- Section Header with Editorial Spacing -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-xs uppercase tracking-[0.15em] text-outline mb-2 block">Organization</span>
+<h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Activity Library</h2>
+</div>
+<!-- Floating Command Bar Style Search & Filter -->
+<div class="flex items-center gap-3 bg-surface-container-lowest p-2 rounded-xl shadow-[0_16px_32px_rgba(28,27,27,0.04)] backdrop-blur-xl border border-outline-variant/20">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-lg gap-3">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body p-0 w-48" placeholder="Search captures..." type="text"/>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container-high rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span class="text-xs font-bold uppercase tracking-wider">Filter</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips (Asymmetric Layout) -->
+<div class="flex flex-wrap gap-2 mt-8">
+<button class="px-5 py-2 bg-primary text-on-primary rounded-full text-xs font-bold transition-all active:scale-95">All Items</button>
+<button class="px-5 py-2 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high rounded-full text-xs font-bold transition-all active:scale-95">Documents</button>
+<button class="px-5 py-2 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high rounded-full text-xs font-bold transition-all active:scale-95">Whiteboards</button>
+<button class="px-5 py-2 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high rounded-full text-xs font-bold transition-all active:scale-95">Recipes</button>
+<button class="px-5 py-2 bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high rounded-full text-xs font-bold transition-all active:scale-95">Sketches</button>
+</div>
+</section>
+<!-- Recent Captures - Bento Grid Layout -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-12">
+<!-- Bento Item: Large Highlight (Recipe) -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(28,27,27,0.02)] border border-outline-variant/10 transition-all hover:shadow-[0_16px_32px_rgba(28,27,27,0.06)]">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="high-angle shot of a beautifully plated Mediterranean pasta dish with fresh herbs and olive oil in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtpz0Bs9A1K0GfHLI-ycZvCG6RAh3H0rmXa-IZu2ggVZH1KDUT7XSSPGHHNQu8hLr_-netqxwvU2se1IwFP7Cstl2QvdmC3s7OJtyCCkJDCRupznUUDvBVuB9nohmpNOlM4EFgMX-4yJrnm0h_WY4QdYlaHaT7MhrQisKj4Ubc22gJC4eFO6Vsc16VuJ382qDw72gow0kzyZnKPlHbkFjQcFSsrOPDLLf3oFXCnMkNChE0vMxgWkTe7LUowkt5df9OZNVLKr0mY38"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-60"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Recipe</span>
+<span class="text-white/70 text-xs font-medium">Oct 24, 11:15 AM</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-white tracking-tight">Artisan Sourdough &amp; Pesto</h3>
+</div>
+<div class="flex gap-2">
+<div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Item: Whiteboard -->
+<div class="md:col-span-4 group bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(28,27,27,0.02)] border border-outline-variant/10 overflow-hidden flex flex-col">
+<div class="aspect-square bg-surface-container-low p-6 overflow-hidden flex items-center justify-center">
+<img class="rounded-lg shadow-sm transition-transform duration-500 group-hover:rotate-1 group-hover:scale-110" data-alt="close-up of a whiteboard with complex architectural system diagrams and blue marker handwriting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3xPahXUnEt108ONT1wuKxIyrQxVLTCPr_qAVOxeMAuMo7a-GBHY-RYxwpHPn0yLPH7x2wNWRepK-2pNJLIi4aauL40HamaWEqzwpxfgJx4EcJP_V4FJqZMfOaMUGzcYv6A3xRduBLVy1Ofs1oDY6m-tPjIG6kEhawFj99QDd5Df0vMhvj--Enagr4j1iW0l393k-OuyDq5qC5hGSJpa6OGA0kR8LVyaRN6sKUc4O5NZtxosIMWR9XKdQA9vpmn6BNatDX-eywi4"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Whiteboard</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-1">Architecture Sync</h3>
+<p class="text-xs text-outline mb-4">Oct 23 • 2:45 PM</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-[8px] flex items-center justify-center text-white border-2 border-surface">JD</div>
+<div class="w-6 h-6 rounded-full bg-secondary text-[8px] flex items-center justify-center text-white border-2 border-surface">AI</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<!-- Bento Item: Document -->
+<div class="md:col-span-4 group bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(28,27,27,0.02)] border border-outline-variant/10 overflow-hidden">
+<div class="p-6 h-full flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-primary-container/10 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="description">description</span>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">Document</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-1">Project Atelier Charter</h3>
+<p class="text-sm text-on-surface-variant/80 line-clamp-2 mb-6">Foundational principles for the digital curator interface and user interaction models...</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs font-medium text-outline">Oct 22 • 09:00 AM</span>
+<span class="material-symbols-outlined text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<!-- Bento Item: Sketch -->
+<div class="md:col-span-4 group bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(28,27,27,0.02)] border border-outline-variant/10 overflow-hidden flex flex-col">
+<div class="aspect-video bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="minimalist pencil sketch of an urban landscape on textured ivory paper with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0SUQ70TS0wafW3PKb-2IBUOSr62I_yRcFTRJ25ZKqxaMRSfCEBlQrFAHuzYKOtCyN8j3GCVzHK8EQ-ZCAmTVfB_eOWaqWxknbLOCPl-7j-AaU1LcE3p7LhLLbcf4kDKovzsOuHsVRHY4_dRUbPvaPhJlUPfx-ih1ma1dx6Y2YX9DOnEKOX4xbarOqalbOn7YCn-wMY0J3RCs0zcHIpTYy-bdw0n831gXjcIPrsYD5_A2eJU3mPCxrlHrq4_9b4uTpKadhfrzGNHQ"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Sketch</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-1">UI Concept #04</h3>
+<p class="text-xs text-outline">Oct 21 • 5:12 PM</p>
+</div>
+</div>
+<!-- Bento Item: Receipt/Expense (AI Insight Card style) -->
+<div class="md:col-span-4 group bg-secondary-container/10 border-l-4 border-secondary rounded-r-xl p-6 flex flex-col justify-between shadow-[0_8px_24px_rgba(28,27,27,0.02)]">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-black tracking-widest uppercase">AI Insight</span>
+</div>
+<h3 class="font-headline font-bold text-lg mb-2">Expense Categorized</h3>
+<p class="text-sm text-on-surface-variant/90 leading-relaxed">Receipt from "Design Supply Co." identified as <strong>Office Equipment</strong>. Amount: $142.00</p>
+</div>
+<div class="mt-6 flex items-center gap-3">
+<button class="text-xs font-bold uppercase tracking-wider text-secondary hover:underline transition-all">Approve</button>
+<button class="text-xs font-bold uppercase tracking-wider text-outline hover:text-on-surface transition-all">Details</button>
+</div>
+</div>
+</section>
+<!-- Earlier This Month List View -->
+<section class="mt-8">
+<h4 class="font-label text-xs uppercase tracking-[0.15em] text-outline mb-6">Earlier this month</h4>
+<div class="space-y-3">
+<!-- List Item 1 -->
+<div class="group flex items-center gap-4 bg-surface-container-lowest p-4 rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="close up of an open book with printed text and soft focus edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa9jxy36pDqxJ7KGxYBG2SHfsA9l_DFE37nc23yrDD7XbU6E4ausRIBBoHLMKreppLU9-OiIwcLxJIed_iQEPCV8QxIGb5rqTAR2xQxBVWgmCqXN35PMqZ0Is4UWuAz99V_yN1POF7-G6Nde0pLXGtP6bnzXKmEUoRAZcC1g0vzrpY_FNob_LzKAhXDdHrdqVDMis5egrUFeChylnccSR9NL392S6Qzd--UXes2Xvim1Xaj3UQnn_N9yf2bDAJ3WgrHqW7KKoL-qw"/>
+</div>
+<div class="flex-grow">
+<h5 class="font-bold text-on-surface text-sm">Meeting Notes - Brand Strategy</h5>
+<p class="text-xs text-outline">Oct 14 • Document</p>
+</div>
+<div class="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="group flex items-center gap-4 bg-surface-container-lowest p-4 rounded-xl border border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="a clean desk with a blank sheet of paper and a black pen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCUmYKkQFGqlv2HXMT1H2vAdvUvXRefG-jS13ZnCRkeTpJSrPTctbVKwtbQOQzdSqDHaGocqcntzwkLh0MHfFxuW4TS1GAhfDckI8T5jPPrAsBEHESv2aM9hdIKLdgRNC7dqA6G29MSRt8wxpSlApThYLGlKRdNSgUzL2RubwA4Zzb4MNnqB4KNLPVT7ugS6dNUFCy_LVVkWWHvRgN84g_jxTr2_Ju_8Z20AlTBw1W4KyB8oevWFUlCrQUVOs_x89e8slCqs7jK94"/>
+</div>
+<div class="flex-grow">
+<h5 class="font-bold text-on-surface text-sm">Draft: User Persona Sketches</h5>
+<p class="text-xs text-outline">Oct 12 • Sketch</p>
+</div>
+<div class="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="star">star</span>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-[#ffffff]/80 dark:bg-[#1c1b1b]/80 backdrop-blur-xl border-t border-[#c4c5d9]/20 shadow-[0_-16px_32px_rgba(28,27,27,0.04)] z-50 flex justify-around items-center px-4 pb-6 pt-3">
+<!-- Capture -->
+<a class="flex flex-col items-center justify-center text-[#40576f]/40 dark:text-[#fcf9f8]/40 hover:text-[#40576f] dark:hover:text-[#6cf8bb] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="photo_camera">photo_camera</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium">Capture</span>
+</a>
+<!-- Library (Active) -->
+<a class="flex flex-col items-center justify-center text-[#40576f] dark:text-[#6cf8bb] font-bold active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Library</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-[#40576f]/40 dark:text-[#fcf9f8]/40 hover:text-[#40576f] dark:hover:text-[#6cf8bb] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium">Settings</span>
+</a>
+</nav>
+</body></html>

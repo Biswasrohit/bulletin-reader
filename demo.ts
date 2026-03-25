@@ -1,4 +1,4 @@
-import { extractFromImage } from './src/integrations/extractor';
+import { extractFromImage } from './src/lib/extractor';
 import * as fs from 'fs';
 import * as path from 'path';
 

@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surface hierarchy */
+  --color-surface: #fcf9f8;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0edec;
+  --color-surface-container-high: #ebe7e7;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-variant: #e5e2e1;
+  --color-surface-tint: #496079;
+
+  /* Background */
+  --color-background: #fcf9f8;
+
+  /* Primary */
+  --color-primary: #40576f;
+  --color-primary-container: #586f89;
+  --color-primary-fixed: #d0e4ff;
+  --color-primary-fixed-dim: #b1c9e6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #e8f1ff;
+  --color-on-primary-fixed: #021d33;
+  --color-on-primary-fixed-variant: #324961;
+  --color-inverse-primary: #b1c9e6;
+
+  /* Secondary (emerald) */
+  --color-secondary: #006c49;
+  --color-secondary-container: #6cf8bb;
+  --color-secondary-fixed: #6ffbbe;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #00714d;
+  --color-on-secondary-fixed: #002113;
+  --color-on-secondary-fixed-variant: #005236;
+
+  /* Tertiary (warm) */
+  --color-tertiary: #993100;
+  --color-tertiary-container: #c24100;
+  --color-tertiary-fixed: #ffdbcf;
+  --color-tertiary-fixed-dim: #ffb59b;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ffece6;
+  --color-on-tertiary-fixed: #380d00;
+  --color-on-tertiary-fixed-variant: #812800;
+
+  /* Text / on-surface */
+  --color-on-surface: #1c1b1b;
+  --color-on-background: #1c1b1b;
+  --color-on-surface-variant: #434656;
+
+  /* Outline */
+  --color-outline: #747688;
+  --color-outline-variant: #c4c5d9;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* Inverse */
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f3f0ef;
+
+  /* Typography */
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-label: 'Inter', sans-serif;
+
+  /* Border radius (matching wireframes) */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Shadows */
+  --shadow-ambient: 0 16px 32px rgba(28, 27, 27, 0.04);
+  --shadow-ambient-up: 0 -16px 32px rgba(28, 27, 27, 0.04);
+  --shadow-subtle: 0 8px 24px rgba(28, 27, 27, 0.02);
+}
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Glass panel effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+/* Scanning reticle glow */
+.scanning-reticle {
+  border: 2px solid rgba(108, 248, 187, 0.5);
+  box-shadow: 0 0 20px rgba(108, 248, 187, 0.2);
+}
+
+/* Shutter button glow */
+.shutter-glow {
+  box-shadow: 0 0 30px rgba(108, 248, 187, 0.4);
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

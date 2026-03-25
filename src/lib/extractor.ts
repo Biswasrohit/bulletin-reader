@@ -65,20 +65,22 @@ function parseResponse(text: string): OutputRequest {
   return JSON.parse(cleaned);
 }
 
-export async function extractFromImage(imagePath: string): Promise<OutputResult> {
+function createClient(): OpenAI {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     throw new Error('OPENROUTER_API_KEY is not set. Add it to your .env file.');
   }
-
-  const client = new OpenAI({
+  return new OpenAI({
     baseURL: 'https://openrouter.ai/api/v1',
     apiKey,
   });
+}
 
-  const imageBuffer = fs.readFileSync(imagePath);
-  const base64Data  = imageBuffer.toString('base64');
-  const mimeType    = getMimeType(imagePath);
+export async function extractFromBase64(
+  base64Data: string,
+  mimeType: string
+): Promise<OutputResult> {
+  const client = createClient();
 
   const response = await client.chat.completions.create({
     model: 'nvidia/nemotron-nano-12b-v2-vl:free',
@@ -96,4 +98,11 @@ export async function extractFromImage(imagePath: string): Promise<OutputResult>
   const text = response.choices[0].message.content ?? '';
   const extracted = parseResponse(text);
   return generateOutputs(extracted);
+}
+
+export async function extractFromImage(imagePath: string): Promise<OutputResult> {
+  const imageBuffer = fs.readFileSync(imagePath);
+  const base64Data = imageBuffer.toString('base64');
+  const mimeType = getMimeType(imagePath);
+  return extractFromBase64(base64Data, mimeType);
 }
