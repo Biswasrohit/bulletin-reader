@@ -27,15 +27,14 @@ export function CameraViewfinder({ onCapture, onUpload }: CameraViewfinderProps)
     <main className="relative h-screen w-full bg-on-surface flex flex-col overflow-hidden">
       {/* Camera Preview */}
       <div className="absolute inset-0 z-0">
-        {isActive ? (
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted
-            className="w-full h-full object-cover opacity-80 mix-blend-screen brightness-110"
-          />
-        ) : (
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          muted
+          className={`w-full h-full object-cover opacity-80 mix-blend-screen brightness-110 ${isActive ? '' : 'hidden'}`}
+        />
+        {!isActive && (
           <div className="w-full h-full flex items-center justify-center">
             {error ? (
               <div className="text-center px-8">
