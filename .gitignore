@@ -1,7 +1,7 @@
 node_modules/
 dist/
 .next/
-.stitch-sceens/
+stitch-screens/
 
 # API keys — never commit this
 .env
