@@ -89,12 +89,6 @@
   vertical-align: middle;
 }
 
-/* Glass panel effect */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-}
-
 /* Scanning reticle glow */
 .scanning-reticle {
   border: 2px solid rgba(108, 248, 187, 0.5);
